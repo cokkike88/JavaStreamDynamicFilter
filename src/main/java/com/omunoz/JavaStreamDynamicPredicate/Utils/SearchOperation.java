@@ -16,7 +16,8 @@ public enum SearchOperation {
     LESS_THAN,
     LESS_THAN_EQUAL,
     ANY,
-    ALL;
+    ALL,
+    BETWEEN;
 
     public static final String[] SIMPLE_OPERATION_SET = {
             "cn",
@@ -32,7 +33,8 @@ public enum SearchOperation {
             "gt",
             "ge",
             "lt",
-            "le"
+            "le",
+            "bt"
     };
 
     public static SearchOperation getDataOption(final String dataOption){
@@ -60,6 +62,7 @@ public enum SearchOperation {
             case "ge": return GREATER_THAN_EQUAL;
             case "lt": return LESS_THAN;
             case "le": return LESS_THAN_EQUAL;
+            case "bt": return BETWEEN;
 
             default: return null;
         }

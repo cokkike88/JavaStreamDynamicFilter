@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CriteriaModel {
     private String keyField;
-    private String valueField;
+    private List<String> listValues;
     private String operator;
     private String dataOption;
     private Boolean isParentValue = false;

@@ -20,11 +20,31 @@ public class SpecificationBuildModel<T> {
         this.params.add(criteriaModel);
     }
 
-    public Predicate<RootModel<T>> build(){
+
+//    public Predicate<RootModel<T>> build(){
+//        if (params.size() == 0) return null;
+//
+//        var specificationModel = new SpecificationModel<T>(this.params.get(0));
+//        Predicate<RootModel<T>> predicate = specificationModel.buildPredicate();
+//
+//        for (int i = 1; i < this.params.size(); i++){
+//            var criteria = this.params.get(i);
+//            var sm = new SpecificationModel<T>(criteria);
+//
+//            predicate = SearchOperation.getDataOption(criteria.getDataOption()) == SearchOperation.ALL?
+//                    predicate.and(sm.buildPredicate()):
+//                    predicate.or(sm.buildPredicate());
+//        }
+//
+//        return predicate;
+//
+//    }
+
+    public Predicate<T> build(){
         if (params.size() == 0) return null;
 
         var specificationModel = new SpecificationModel<T>(this.params.get(0));
-        Predicate<RootModel<T>> predicate = specificationModel.buildPredicate();
+        Predicate<T> predicate = specificationModel.buildPredicate();
 
         for (int i = 1; i < this.params.size(); i++){
             var criteria = this.params.get(i);
